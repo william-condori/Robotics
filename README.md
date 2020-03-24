@@ -1,5 +1,4 @@
 # Robotics
-<h2 align="center">Proyectos de Robótica utilizando la placa Arduino</h2>  
 
 ## Manejo de sensor Ultrasónico
 Utilizaremos un sensor ultrasónico del tipo HC-SR04 conectado a un microcontrolador (MCU) para medir la distancia de objetos posicionados aleatoriamente a distancias de 20 cm a 1 m.
