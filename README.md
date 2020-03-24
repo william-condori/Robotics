@@ -23,7 +23,7 @@ Utilizaremos un sensor ultrasónico del tipo HC-SR04 conectado a un microcontrol
 6. Verificar las señales de Trig y Echo en el Analizador Lógico. 
 7. Verificar los resultados entregados por el MCU (Arduino).
 
-### [Ver Código]("https://github.com/WilliamAbelCondori/Robotics/blob/master/ultrasonico/ultrasonico.ino")
+### [Ver Código](https://github.com/WilliamAbelCondori/Robotics/blob/master/ultrasonico/ultrasonico.ino)
 
 
 <img src="https://github.com/WilliamAbelCondori/Robotics/blob/master/img/potenciometro_servo.jpg" alt="Build Status">
