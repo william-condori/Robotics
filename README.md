@@ -45,11 +45,11 @@ Controlaremos un servomotor analógico y  su posición mediante el uso de un pot
 2. Conectar el servomotor a la fuente de poder (NO a la salida +5v del MCU). 
 3. Conectar las señales de control del servomotor a entradas del Analizador Lógico. 
 4. Ejecutar el programa de Arduino, que debe realizar las siguientes tareas: 
-	a. Configurar GIPO conectado al Servomotor como salida. 
-	b. Configurar GPIO conectado al Potenciómetro como entrada. 
-	c. Mostrar en pantalla la lectura ADC del potenciómetro. 
-	d. Calcular el ancho de pulso requerido en función al valor del potenciómetro y mostrar valores en el monitor serie 
-	e. Generar señal PWM mediante temporizadores (sin librería) para mover el Servomotor en función al valor leído en el Potenciómetro.  Luego generar la señal PWM utilizando librerías.  
+    a. Configurar GIPO conectado al Servomotor como salida. 
+    b. Configurar GPIO conectado al Potenciómetro como entrada. 
+    c. Mostrar en pantalla la lectura ADC del potenciómetro. 
+    d. Calcular el ancho de pulso requerido en función al valor del potenciómetro y mostrar valores en el monitor serie 
+    e. Generar señal PWM mediante temporizadores (sin librería) para mover el Servomotor en función al valor leído en el Potenciómetro.  Luego generar la señal PWM utilizando librerías.  
 5.  Verificar la señal PWM generada por el MCU. 
 6. Verificar la posición del servomotor en función al ancho de pulso entregado por el MCU.
 

@@ -18,10 +18,11 @@ Servo servo_ultrasonico;
 /*
   DECLARACION DE LOS PINES QUE SE USARAN EN EL ARDUINO
 */
-int Echo = 4;
-int Trig = 2;
-int pinServo_Ultrasonico = 7;
-int pinServo_Lazer = 8;
+int Echo = 6;
+int Trig = 9;
+int pinServo_Ultrasonico = 3;
+int pinServo_Lazer = 5;
+int pinLaser = 13;
 /*
    Variables Globales del sistema
 */
@@ -39,6 +40,7 @@ void setup() {
 
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
+  pinMode(pinLaser, OUTPUT);
 
 }
 
@@ -55,9 +57,17 @@ void loop() {
   comenzarBusqueda();
 }
 
+void encenderLaser() {
+  digitalWrite(pinLaser, HIGH);
+}
+void apagarLaser() {
+  digitalWrite(pinLaser, LOW);
+}
+
 
 void comenzarBusqueda() {
   buscando = true;
+  apagarLaser(); //Apagamos nuestro laser en caso de que este encendido
   moverServo(0, servo_laser ); //Colocamos el laser en la posicion inicial
   while (buscando) {
 
@@ -84,10 +94,12 @@ void comenzarBusqueda() {
 }
 bool objetoEncontrado(int angulo_beta) {
   long distancia = distancia_objeto() ;
-  Serial.println((String)distancia);
+  
   if (distancia >= 0 && distancia <= DISTANCIA_MAX_ULTRASONICO) {
     moverServo(encontrandoAlfa(distancia, DISTANCIA_SERVOS , angulo_beta), servo_laser );
-    Serial.println((String)"Objeto encontrado a los "+distancia+" cm.");
+    encenderLaser(); //Encendemos el laser
+    Serial.println((String)"Angulo Beta " + angulo_beta + "°");
+    Serial.println((String)"Objeto encontrado a los " + distancia + " cm.");
     return true;
   }
   return false;
@@ -95,8 +107,8 @@ bool objetoEncontrado(int angulo_beta) {
 
 float encontrandoAlfa(int a, int b, int C) {
   float c = sqrt((a * a) + (b * b) - (2 * a * b * cos(GradosARadianes(C))) );
-  float alfa=asin((a * sin(GradosARadianes(C))) / c) * (180 / Pi); //Volvemos a transformarlo a grados
-  Serial.println((String)"Angulo Alfa "+alfa+"°");
+  float alfa = asin((a * sin(GradosARadianes(C))) / c) * (180 / Pi); //Volvemos a transformarlo a grados
+  Serial.println((String)"Angulo Alfa " + alfa + "°");
   return 180 - alfa;
 }
 
